@@ -1,4 +1,4 @@
-const toString = Object.prototype.toString{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+const toString = Object.prototype.toString;
 /**
  * 判断val是否为type类型的值
  * @param val
@@ -6,18 +6,16 @@ const toString = Object.prototype.toString{{#if_eq lintConfig "airbnb"}};{{/if_e
  * @returns {boolean}
  */
 export const isType = (val, type) => {
-  if (!type) return false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-
-  if (type === 'Number' && Number.isNaN(val)) return false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-
-  return (toString.call(val).replace(/.*\s(.*)]$/, '$1').toLowerCase() === type.toLowerCase()){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  if (!type) return false;
+  if (type === 'Number' && Number.isNaN(val)) return false;
+  return (toString.call(val).replace(/.*\s(.*)]$/, '$1').toLowerCase() === type.toLowerCase());
+};
 
 /**
 * 获取val的类型
 * @param val
 * @returns {string}
 */
-export const getType = (val) => (Number.isNaN(val) ? 'NaN' : toString.call(val).replace(/.*\s(.*)]$/, '$1')){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+export const getType = (val) => (Number.isNaN(val) ? 'NaN' : toString.call(val).replace(/.*\s(.*)]$/, '$1'));
 
-export const $type = { getType, isType{{#if_eq lintConfig "airbnb"}},{{/if_eq}} }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+export const $type = { getType, isType };

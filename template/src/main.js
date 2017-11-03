@@ -3,31 +3,31 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 {{#polyfill}}
-import 'babel-polyfill'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import 'babel-polyfill';
 {{/polyfill}}
-import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Vue from 'vue';
 {{#element}}
-import ElementUI from 'element-ui'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import ElementUI from 'element-ui';
 {{/element}}
-import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import App from './App';
 {{#router}}
-import router from '@/router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import router from '@/router';
 {{/router}}
 {{#vuex}}
-import store from '@/store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import store from '@/store';
 {{/vuex}}
-import { $http, $type, filters } from '@/utils'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import * as CONFIG from '@/config'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { $http, $type, filters } from '@/utils';
+import * as CONFIG from '@/config';
 
-Vue.use(filters){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.use(filters);
 {{#element}}
-Vue.use(ElementUI){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.use(ElementUI);
 {{/element}}
 
-Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.config.productionTip = false;
 
 /*
- * HTTP 请求函数，使用方法请查看：https: *github.com/axios/axios
+ * HTTP 请求函数，使用方法请查看：https: //github.com/axios/axios
  * 已封装 Auth 到 Header 里面，默认会处理错误的响应，返回 Promise
  * 例子：
  * $http.post(API.ANY, {username: '', password: '' })
@@ -38,9 +38,9 @@ Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
  *         // handle error
  *     })
 */
-window.$http = $http{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-window.$type = $type{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-window.CONFIG = CONFIG{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+window.$http = $http;
+window.$type = $type;
+window.CONFIG = CONFIG;
 
 /* eslint-disable no-new */
 new Vue({
@@ -52,10 +52,10 @@ new Vue({
   router,
   {{/router}}
   {{#if_eq build "runtime"}}
-  render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  render: h => h(App)
   {{/if_eq}}
   {{#if_eq build "standalone"}}
   template: '<App/>',
-  components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  components: { App }
   {{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+});

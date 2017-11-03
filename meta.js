@@ -61,56 +61,30 @@ module.exports = {
       "message": "Install babel-polyfill for Promise?",
       "default": true
     },
-    "lint": {
-      "type": "confirm",
-      "message": "Use ESLint to lint your code?",
-      "default": true
-    },
-    "lintConfig": {
-      "when": "lint",
-      "type": "list",
-      "message": "Pick an ESLint preset",
-      "choices": [
-        {
-          "name": "Standard (https://github.com/feross/standard)",
-          "value": "standard",
-          "short": "Standard"
-        },
-        {
-          "name": "Airbnb (https://github.com/airbnb/javascript)",
-          "value": "airbnb",
-          "short": "Airbnb"
-        },
-        {
-          "name": "none (configure it yourself)",
-          "value": "none",
-          "short": "none"
-        }
-      ]
-    },
     "precommit": {
-      "when": "lint",
       "type": "confirm",
       "message": "Use pre-commit for auto fix + format?"
     },
     "unit": {
       "type": "confirm",
-      "message": "Setup unit tests with Karma + Mocha?"
+      "message": "Setup unit tests with Karma + Mocha?",
+      "default": false
     },
     "e2e": {
       "type": "confirm",
-      "message": "Setup e2e tests with Nightwatch?"
+      "message": "Setup e2e tests with Nightwatch?",
+      "default": false
     }
   },
   "filters": {
-    ".eslintrc.js": "lint",
-    ".eslintignore": "lint",
     "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
     "build/webpack.test.conf.js": "unit",
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router",
-    "src/store/**/*": "vuex"
+    "src/store/**/*": "vuex",
+    "src/components/Menu.vue": "element",
+    "src/components/Header.vue": "element"
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\n"
 };
