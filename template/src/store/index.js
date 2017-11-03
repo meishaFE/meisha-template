@@ -1,19 +1,19 @@
-import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import Vuex from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import * as actions from './actions'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import * as getters from './getters'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import mutations from './mutations'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Vue from 'vue';
+import Vuex from 'vuex';
+import * as actions from './actions';
+import * as getters from './getters';
+import mutations from './mutations';
 
-Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.use(Vuex);
 
-const debug = process.env.NODE_ENV !== 'production'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+const debug = process.env.NODE_ENV !== 'production';
 
-const state = {}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+const state = {};
 
 export default new Vuex.Store({
   state,
   mutations,
   actions,
   getters,
-  strict: debug{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  strict: debug
 })

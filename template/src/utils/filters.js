@@ -1,16 +1,16 @@
-// 全局的过滤器
-import {isType} from './type'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import {isType} from './type';
 
-const globalFilters = {}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+// 全局的过滤器
+const globalFilters = {};
 
 const install = Vue => {
-  if (!isType(globalFilters, 'Object')) return{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  if (!isType(globalFilters, 'Object')) return;
 
-  const keys = Object.keys(globalFilters){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  const keys = Object.keys(globalFilters);
 
-  if (!isType(keys, 'Array') || !keys.length) return{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  if (!isType(keys, 'Array') || !keys.length) return;
 
-  keys.forEach(key => Vue.filter(key, globalFilters[key])){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  keys.forEach(key => Vue.filter(key, globalFilters[key]));
+};
 
-export const filters = { install }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+export const filters = { install };
