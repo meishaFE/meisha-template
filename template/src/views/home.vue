@@ -1,16 +1,16 @@
 <template>
-  <section class="view-all">
-    <vHeader></vHeader>
-    <vMenu v-on:changeMenu="changeMenu"></vMenu>
-    <section class="view-right" :class="{'is-change':isShow}">
-
-    </section>
-  </section>
+  <div class="home">
+    <v-header @logout="logout"></v-header>
+    <v-menu v-on:changeMenu="changeMenu"></v-menu>
+    <div class="main">
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <script>
-import vHeader from '../components/Header.vue';
-import vMenu from '../components/Menu.vue';
+import vHeader from '@/components/Header.vue';
+import vMenu from '@/components/Menu.vue';
 export default {
   name: 'Home',
   data () {
@@ -21,6 +21,9 @@ export default {
   methods: {
     changeMenu (status) {
       this.isShow = status;
+    },
+    logout() {
+      this.$store.dispatch('logout')
     }
   },
   components: {
