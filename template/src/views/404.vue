@@ -9,7 +9,8 @@
         这时候你可以：
       </div>
       <div class="para-3">
-        <a>返回到首页</a>
+        <router-link class="para-3__homebtn"
+          :to="{name: 'Home'}">返回到首页</router-link>
       </div>
     </div>
   </section>
@@ -21,47 +22,53 @@ export default {
 };
 </script>
 
-<style lang="scss" rel="stylesheet/scss"   scoped>
-  @import "../assets/scss/index";
-  .not-found{
+<style lang="scss" rel="stylesheet/scss" scoped>
+@import '../assets/scss/index';
+.not-found {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: $bgColorTotal;
+
+  .part-word {
     position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: $bgColorTotal;
-    .part-word{
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%,-50%);
-    }
-    .not-found-icon{
-      width: 300px;
-      height: 125px;
-      background: url('../assets/img/notFound.png') no-repeat left top;
-    }
-    .para-1{
-      margin-top: 60px;
-      @include font-style(18px,$fontColorSubTitle,18px);
-    }
-    .para-2{
-       margin-top: 10px;
-       @include font-style(18px,$fontColorSubTitle,18px);
-    }
-    .para-3{
-      margin: 15px auto 0;
-      a{
-        cursor:pointer;
-        display: inline-block;
-        width: 122px;
-        height: 42px;
-        background: $bgColorTotal;
-        text-align: center;
-        border:1px solid $defaultColorNormal;
-        @include rounded(4px);
-        @include font-style(16px,$defaultColorNormal,42px);
-      }
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .not-found-icon {
+    width: 300px;
+    height: 125px;
+    background: url('../assets/img/notFound.png') no-repeat left top;
+  }
+
+  .para-1 {
+    margin-top: 60px;
+    @include font-style(18px,$fontColorSubTitle,18px);
+  }
+
+  .para-2 {
+    margin-top: 10px;
+    @include font-style(18px,$fontColorSubTitle,18px);
+  }
+
+  .para-3 {
+    margin: 15px auto 0;
+
+    &__homebtn {
+      cursor: pointer;
+      display: inline-block;
+      width: 122px;
+      height: 42px;
+      background: $bgColorTotal;
+      text-align: center;
+      border: 1px solid $defaultColorNormal;
+      @include rounded(4px);
+      @include font-style(16px,$defaultColorNormal,42px);
     }
   }
+}
 </style>

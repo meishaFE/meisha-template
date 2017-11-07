@@ -1,11 +1,12 @@
 <template>
   <section class="view-header">
     <a class="logo-left">
-      <span>{{title}}</span>
+      <span>\{{title}}</span>
     </a>
     <ul class="right-link">
-      <li v-for="(item, index) in rightLinks" :key="index">
-        <router-link :to="item.router">{{item.label}}</router-link>
+      <li v-for="(item, index) in rightLinks"
+        :key="index">
+        <router-link :to="item.router">\{{item.label}}</router-link>
       </li>
       <li>
         <a @click.prevent.stop="$emit('logout')">退出</a>
@@ -20,13 +21,11 @@ export default {
   props: {
     title: {
       type: String,
-      default() {
-        return '梅沙教育'
-      }
+      default: '梅沙教育'
     },
     rightLinks: {
       type: Array,
-      default() {
+      default () {
         return [{
           router: '',
           label: '账户权限'
@@ -35,7 +34,7 @@ export default {
           label: '个人设置'
         }];
       }
-    },
+    }
   }
 };
 </script>

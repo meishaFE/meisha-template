@@ -1,8 +1,9 @@
 <template>
   <div class="home">
     <v-header @logout="logout"></v-header>
-    <v-menu v-on:changeMenu="changeMenu"></v-menu>
-    <div class="main">
+    <v-menu v-on:collapse="toggleMenuCollapse"></v-menu>
+    <div class="main"
+      :class="{large : isMenuColllapse}">
       <router-view />
     </div>
   </div>
@@ -15,15 +16,15 @@ export default {
   name: 'Home',
   data () {
     return {
-      isShow: false
+      isMenuColllapse: false
     };
   },
   methods: {
-    changeMenu (status) {
-      this.isShow = status;
+    toggleMenuCollapse (status) {
+      this.isMenuColllapse = status;
     },
-    logout() {
-      this.$store.dispatch('logout')
+    logout () {
+      this.$store.dispatch('logout');
     }
   },
   components: {
@@ -35,7 +36,7 @@ export default {
 
 <style lang="scss" rel="stylesheet/scss" scoped>
   @import "../assets/scss/index";
-  .view-all{
+  .home {
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -43,16 +44,18 @@ export default {
     left: 0;
     right: 0;
     min-width: 1103px;
-    .view-right{
+
+    .main {
       position: absolute;
       top: 50px;
       left: 180px;
       right: 0;
       bottom: 0;
       @include transition(left .3s ease);
-    }
-    .view-right.is-change{
-      left: 64px;
+
+      &.large {
+        left: 64px;
+      }
     }
   }
 </style>

@@ -19,6 +19,7 @@ import store from '@/store';
 {{/vuex}}
 import { $http, $type, filters } from '@/utils';
 import * as CONFIG from '@/config';
+import './assets/scss/app.scss';
 
 Vue.use(filters);
 {{#element}}
