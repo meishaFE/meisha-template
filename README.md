@@ -60,5 +60,5 @@ vue init username/repo my-project
 
 ### TODOS
 
-[] 文档更新
-[] 主页面顶级菜单栏组件
+- [ ] 文档更新
+- [ ] 主页面顶级菜单栏组件
