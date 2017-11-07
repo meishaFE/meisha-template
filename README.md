@@ -1,4 +1,4 @@
-# vue-webpack-boilerplate
+# 梅沙科技-项目模版
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 

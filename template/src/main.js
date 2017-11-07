@@ -8,6 +8,7 @@ import 'babel-polyfill';
 import Vue from 'vue';
 {{#element}}
 import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-default/index.css';
 {{/element}}
 import App from './App';
 {{#router}}
@@ -18,6 +19,7 @@ import store from '@/store';
 {{/vuex}}
 import { $http, $type, filters } from '@/utils';
 import * as CONFIG from '@/config';
+import './assets/scss/app.scss';
 
 Vue.use(filters);
 {{#element}}
