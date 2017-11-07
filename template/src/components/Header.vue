@@ -20,13 +20,13 @@ export default {
   props: {
     title: {
       type: String,
-      default() {
-        return '梅沙教育'
+      default () {
+        return '梅沙教育';
       }
     },
     rightLinks: {
       type: Array,
-      default() {
+      default () {
         return [{
           router: '',
           label: '账户权限'
@@ -35,7 +35,7 @@ export default {
           label: '个人设置'
         }];
       }
-    },
+    }
   }
 };
 </script>
