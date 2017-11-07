@@ -9,7 +9,8 @@
         这时候你可以：
       </div>
       <div class="para-3">
-        <a>返回到首页</a>
+        <router-link class="para-3__homebtn"
+          :to="{name: 'Home'}">返回到首页</router-link>
       </div>
     </div>
   </section>
@@ -57,7 +58,7 @@ export default {
   .para-3 {
     margin: 15px auto 0;
 
-    a {
+    &__homebtn {
       cursor: pointer;
       display: inline-block;
       width: 122px;

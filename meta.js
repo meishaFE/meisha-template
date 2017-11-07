@@ -86,5 +86,5 @@ module.exports = {
     "src/components/Menu.vue": "element",
     "src/components/Header.vue": "element"
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\n"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}git init\nnpm install\n  npm run dev\n\n"
 };
