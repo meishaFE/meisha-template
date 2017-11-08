@@ -41,8 +41,8 @@ $http
   .interceptors
   .request
   .use(config => {
-    config.headers['Auth'] = localStorage.getItem('auth') || ''
-    return config
+    config.headers['Auth'] = localStorage.getItem('auth') || '';
+    return config;
   })
 
 export {$http};
