@@ -29,4 +29,5 @@ $ npm run dev
 
 # eslint自定义规则说明
 
+更多规则，请查看
 https://github.com/standard/standard/blob/master/docs/RULES-zhcn.md
