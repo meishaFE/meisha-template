@@ -19,9 +19,12 @@ $ npm run dev
 # 提pr
 
 
-## 1.fork 当前项目
-## 2.clone 自己github项目到本地进行开发；pull，commit,push
-## 3.进入到自己github上找到此项目，切换到Pull request 模块，点击New pull request按钮；然后会出现Comparing changes界面（分支可切换），填写录入修改提交信息之后，点击Create pull request按钮即可完成一次pr提交
+###
+1.fork 当前项目
+###
+2.clone 自己github项目到本地进行开发；pull，commit,push
+###
+3.进入到自己github上找到此项目，切换到Pull request 模块，点击New pull request按钮；然后会出现Comparing changes界面（分支可切换），填写录入修改提交信息之后，点击Create pull request按钮即可完成一次pr提交
 
 
 # eslint自定义规则说明
