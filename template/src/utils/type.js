@@ -6,8 +6,10 @@ const toString = Object.prototype.toString;
  * @returns {boolean}
  */
 export const isType = (val, type) => {
-  if (!type) return false;
-  if (type === 'Number' && Number.isNaN(val)) return false;
+  if (!type)
+    return false;
+  if (type === 'Number' && Number.isNaN(val))
+    return false;
   return (toString.call(val).replace(/.*\s(.*)]$/, '$1').toLowerCase() === type.toLowerCase());
 };
 
@@ -16,6 +18,11 @@ export const isType = (val, type) => {
 * @param val
 * @returns {string}
 */
-export const getType = (val) => (Number.isNaN(val) ? 'NaN' : toString.call(val).replace(/.*\s(.*)]$/, '$1'));
+export const getType = (val) => (Number.isNaN(val)
+  ? 'NaN'
+  : toString.call(val).replace(/.*\s(.*)]$/, '$1'));
 
-export const $type = { getType, isType };
+export const $type = {
+  getType,
+  isType
+};
