@@ -1,64 +1,32 @@
 # 梅沙科技-项目模版
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+## 功能说明
 
-> This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
+此模板是根据vue官方模板，结合vue-element编写的一套针对后台系统的模板。此模板包含：eslint对js代码的编写约束；vuex及vue-router集成；公共页面（404，登录页，欢迎页）的集成；分页组件（2种结构样式）的集成；弹出层（分为3种规格）的集成；公共头部以及菜单栏的集成；整体系统布局的初始化；fetch.js和类型检测等使用频率高的公共js方法及过滤器集成
 
-## Documentation
+## 安装及使用
 
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
-- [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
+项目安装之前，确保你的电脑已安装node及npm
 
-## Usage
-
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
-
-``` bash
-$ npm install -g vue-cli
-$ vue init webpack my-project
-$ cd my-project
-$ npm install
-$ npm run dev
+```bash
+npm install -g vue-cli
+vue init meishaFE/meisha-template my-project
+cd my-project
+npm install
+npm run dev
 ```
 
-The development server will run on port 8080 by default. If that port is already in use on your machine, the next free port will be used.
+## 提pr
 
-## What's Included
+1. fork 当前项目
+1. clone 自己 github 项目到本地进行开发；pull, commit, push
+1. 进入到自己 github 上找到此项目，切换到 Pull request 模块，点击 New pull request 按钮；然后会出现 Comparing changes界面（分支可切换），填写录入修改提交信息之后，点击 Create pull request 按钮即可完成一次 pr 提交
 
-- `npm run dev`: first-in-class development experience.
-  - Webpack + `vue-loader` for single file Vue components.
-  - State preserving hot-reload
-  - State preserving compilation error overlay
-  - Lint-on-save with ESLint
-  - Source maps
+## eslint自定义规则说明
 
-- `npm run build`: Production ready build.
-  - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
-  - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
-  - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
-  - Static assets compiled with version hashes for efficient long-term caching, and an auto-generated production `index.html` with proper URLs to these generated assets.
-  - Use `npm run build --report`to build with bundle size analytics.
+[点击查看](./ESLINT.md)
 
-- `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
-  - Supports ES2015+ in test files.
-  - Supports all webpack loaders.
-  - Easy mock injection.
-
-- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
-  - Run tests in multiple browsers in parallel.
-  - Works with one command out of the box:
-    - Selenium and chromedriver dependencies automatically handled.
-    - Automatically spawns the Selenium server.
-
-### Fork It And Make Your Own
-
-You can fork this repo to create your own boilerplate, and use it with `vue-cli`:
-
-``` bash
-vue init username/repo my-project
-```
-
-### TODOS
+## TODOS
 
 - [ ] 文档更新
 - [ ] 主页面顶级菜单栏组件
