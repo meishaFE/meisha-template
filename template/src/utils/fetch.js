@@ -12,11 +12,10 @@ const options = {
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   },
-  transformRequest: [
-    function (data) {
-        const params = new URLSearchParams();
-        params.append('data', JSON.stringify(data));
-        return params;
+  transformRequest: [function (data) {
+      const params = new URLSearchParams();
+      params.append('data', JSON.stringify(data));
+      return params;
     }
   ],
   withCredentials: true

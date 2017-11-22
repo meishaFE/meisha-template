@@ -4,7 +4,7 @@
     :close-on-click-modal="false"
     :visible.sync="dialogObj.dialogVisible"
     :class="{'dialog-a':dialogObj.type == 'A','dialog-b':dialogObj.type == 'B','dialog-c':dialogObj.type == 'C','dialog-self':true}">
-    <span v-if="dialogObj.type == 'A'"><i class="icon-style el-icon-information"></i>{{dialogObj.content}}</span>
+    <span v-if="dialogObj.type == 'A'"><i class="icon-style el-icon-information"></i>\{{dialogObj.content}}</span>
     <slot v-if="dialogObj.type == 'B' || dialogObj.type == 'C'" name="template"></slot>
     <span slot="footer" class="dialog-footer">
       <el-button v-if="!dialogObj.isNeedCancle" @click="dialogObj.dialogVisible = false">取 消</el-button>
