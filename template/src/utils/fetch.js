@@ -4,8 +4,8 @@
  */
 import axios from 'axios';
 import URLSearchParams from 'url-search-params';
-import {BASE_URL} from '@/config/api';
-import {isType} from './type';
+import { BASE_URL } from '@/config/api';
+import { isType } from './type';
 
 const options = {
   baseURL: BASE_URL,

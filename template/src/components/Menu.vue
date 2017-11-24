@@ -111,7 +111,7 @@ export default {
         padding-left: 20px;
         background: $bgColorDisabled;
         border-bottom: 1px solid $borderColorTable;
-        @include font-style(16px,$fontColorTitle,48px);
+        @include font-style(16px, $fontColorTitle, 48px);
         span {
             position: absolute;
             width: 64px;
@@ -121,7 +121,7 @@ export default {
             display: block;
             cursor: pointer;
             text-align: center;
-            @include font-style(16px,$fontColorDisable,48px);
+            @include font-style(16px, $fontColorDisable, 48px);
         }
     }
 }

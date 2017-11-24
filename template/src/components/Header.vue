@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style lang="scss" rel="stylesheet/scss"  scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
 @import '../assets/scss/index';
 .view-header {
   position: absolute;
@@ -58,7 +58,7 @@ export default {
     span {
       display: inline-block;
       padding-left: 35px;
-      @include font-style(16px,$fontColorWhite,50px);
+      @include font-style(16px, $fontColorWhite, 50px);
       background: url('http://meishakeji-oss1.oss-cn-shenzhen.aliyuncs.com/camps/camppic/f988f49793f9455dab80afcc11a2049a.png') no-repeat left center;
     }
     &:hover {
