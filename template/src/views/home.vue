@@ -3,7 +3,7 @@
     <v-header @logout="logout"></v-header>
     <v-menu v-on:collapse="toggleMenuCollapse"></v-menu>
     <div class="main"
-      :class="{large : isMenuColllapse}">
+      :class="{large: isMenuColllapse}">
       <router-view />
     </div>
   </div>

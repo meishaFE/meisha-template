@@ -1,4 +1,4 @@
-import {isType} from './type';
+import { isType } from './type';
 
 // 全局的过滤器
 const globalFilters = {};

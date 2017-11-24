@@ -47,12 +47,12 @@ export default {
 
   .para-1 {
     margin-top: 60px;
-    @include font-style(18px,$fontColorSubTitle,18px);
+    @include font-style(18px,$fontColorSubTitle, 18px);
   }
 
   .para-2 {
     margin-top: 10px;
-    @include font-style(18px,$fontColorSubTitle,18px);
+    @include font-style(18px,$fontColorSubTitle, 18px);
   }
 
   .para-3 {
@@ -67,7 +67,7 @@ export default {
       text-align: center;
       border: 1px solid $defaultColorNormal;
       @include rounded(4px);
-      @include font-style(16px,$defaultColorNormal,42px);
+      @include font-style(16px,$defaultColorNormal, 42px);
     }
   }
 }

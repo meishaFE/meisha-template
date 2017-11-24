@@ -24,7 +24,7 @@ export default {
        text-align: center;
        padding-top: 126px;
        background: url('../assets/img/welcome.png') no-repeat center top;
-       @include font-style(18px,$fontColorSubTitle,42px);
+       @include font-style(18px,$fontColorSubTitle, 42px);
     }
   }
 </style>
