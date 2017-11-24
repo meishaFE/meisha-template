@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style lang="scss" rel="stylesheet/scss"  scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
   @import "../../assets/scss/index";
   .page-opera-view{
       text-align: right;

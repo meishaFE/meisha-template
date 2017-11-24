@@ -3,7 +3,7 @@
     :title="dialogObj.title"
     :close-on-click-modal="false"
     :visible.sync="dialogObj.dialogVisible"
-    :class="{'dialog-a':dialogObj.type == 'A','dialog-b':dialogObj.type == 'B','dialog-c':dialogObj.type == 'C','dialog-self':true}">
+    :class="{'dialog-a': dialogObj.type == 'A', 'dialog-b': dialogObj.type == 'B', 'dialog-c': dialogObj.type == 'C', 'dialog-self': true}">
     <span v-if="dialogObj.type == 'A'"><i class="icon-style el-icon-information"></i>\{{dialogObj.content}}</span>
     <slot v-if="dialogObj.type == 'B' || dialogObj.type == 'C'" name="template"></slot>
     <span slot="footer" class="dialog-footer">
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-// 弹窗种类3种 根据 dialogObj.type来区分 A：380尺寸  B 460尺寸 C:948尺寸
+// 弹窗种类3种 根据 dialogObj.type 来区分 A：380 尺寸  B：460 尺寸 C:948 尺寸
 export default {
   name: 'Dialog',
   data () {
@@ -49,40 +49,40 @@ export default {
 };
 </script>
 
-<style lang="scss" rel="stylesheet/scss" >
+<style lang="scss" rel="stylesheet/scss">
 @import "../../assets/scss/index";
 //弹窗样式改造
-.dialog-self .el-dialog{
-    .el-dialog__header{
+.dialog-self .el-dialog {
+    .el-dialog__header {
         padding: 20px;
         border-bottom: 1px solid $borderColorTable;
     }
-    .el-dialog__body{
+    .el-dialog__body {
         max-height: 469px;
     }
-    .el-dialog__footer{
+    .el-dialog__footer {
         border-top: 1px solid $borderColorTable;
         padding: 16px 20px;
     }
-    .icon-style{
+    .icon-style {
         color: $warnColorNormal;
         margin-right: 10px;
     }
 }
 
 //A类弹窗
-.dialog-a .el-dialog{
+.dialog-a .el-dialog {
     width: 380px;
 }
 
 
 //B类弹窗
-.dialog-b .el-dialog{
+.dialog-b .el-dialog {
     width: 460px;
 }
 
 //C类弹窗
-.dialog-c .el-dialog{
+.dialog-c .el-dialog {
     width: 948px;
 }
 </style>

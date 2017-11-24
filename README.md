@@ -12,6 +12,7 @@
 npm install -g vue-cli
 vue init meishaFE/meisha-template my-project
 cd my-project
+git init
 npm install
 npm run dev
 ```
