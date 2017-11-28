@@ -32,16 +32,15 @@ $http
   .interceptors
   .response
   .use(res => {
-    // 处理响应为空的情况
-    if (!res || !res.data || (!isType(res.data, 'Object') && !isType(res.data, 'Array'))) { // 处理未登录的情况
+    if (!res || !res.data || (!isType(res.data, 'Object') && !isType(res.data, 'Array'))) { // 处理响应为空的情况
       return Promise.reject(new Error('response is empty'));
-    } else if (res.data.code === -1001) { // 处理后端返回的 code 不为 0 的情况
+    } else if (res.data.code === -1001) { // 处理未登录的情况
       handleNoLogin();
-    } else if (res.data.code !== 0) {
+    } else if (res.data.code !== 0) { // 处理后端返回的 code 不为 0 的情况
       return Promise.reject(res.data);
+    } else { // 正常返回
+      return res.data;
     }
-    // 正常返回
-    return res.data;
   });
 
 $http
