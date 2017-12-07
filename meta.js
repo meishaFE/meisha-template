@@ -63,7 +63,8 @@ module.exports = {
     },
     "precommit": {
       "type": "confirm",
-      "message": "Use pre-commit for auto fix + format?"
+      "message": "Use pre-commit for auto fix + format?",
+      "default": false
     },
     "unit": {
       "type": "confirm",
