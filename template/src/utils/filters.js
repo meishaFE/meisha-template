@@ -4,13 +4,15 @@ import { isType } from './type';
 const globalFilters = {};
 
 const install = Vue => {
-  if (!isType(globalFilters, 'Object'))
+  if (!isType(globalFilters, 'Object')) {
     return;
+  }
 
   const keys = Object.keys(globalFilters);
 
-  if (!isType(keys, 'Array') || !keys.length)
+  if (!isType(keys, 'Array') || !keys.length) {
     return;
+  }
 
   keys.forEach(key => Vue.filter(key, globalFilters[key]));
 };
