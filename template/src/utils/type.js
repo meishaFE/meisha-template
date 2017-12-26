@@ -6,8 +6,12 @@ const toString = Object.prototype.toString;
  * @returns {boolean}
  */
 export const isType = (val, type) => {
-  if (!type) { return false; }
-  if (type === 'Number' && Number.isNaN(val)) { return false; }
+  if (!type) {
+    return false;
+  }
+  if (type === 'Number' && Number.isNaN(val)) {
+    return false;
+  }
   return (toString.call(val).replace(/.*\s(.*)]$/, '$1').toLowerCase() === type.toLowerCase());
 };
 
