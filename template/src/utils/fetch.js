@@ -16,8 +16,7 @@ const options = {
     const params = new URLSearchParams();
     params.append('data', JSON.stringify(data));
     return params;
-  }
-  ],
+  }],
   withCredentials: true
 };
 
