@@ -4,7 +4,10 @@
     <v-menu v-on:collapse="toggleMenuCollapse"></v-menu>
     <div class="main"
       :class="{large: isMenuColllapse}">
-      <router-view />
+       <keep-alive>
+        <router-view v-on:changeLoading="changeLoading" v-if="$route.meta.keepAlive"/>
+      </keep-alive>
+      <router-view v-on:changeLoading="changeLoading" v-if="!$route.meta.keepAlive"></router-view>
     </div>
   </div>
 </template>

@@ -15,6 +15,15 @@ module.exports = {
   plugins: [
     'html'
   ],
+  globals: {
+    WxLogin: false,
+    $tool: false,
+    $cookie: false,
+    $http: false,
+    $type: false,
+    CONFIG: false,
+    MeishaWatch: false
+  },
   // add your custom rules here
   'rules': {
     'semi': [

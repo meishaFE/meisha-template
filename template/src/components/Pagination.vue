@@ -1,11 +1,12 @@
 <template>
   <section class="page-opera-view">
-    <el-pagination @size-change="handleSizeChange"
+    <el-pagination
+      @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-      :current-page="currentPage"
-      :small="pageObj.isSamll"
+      :current-page="pageObj.currentPage"
+      :small = "pageObj.isSamll"
       :page-sizes="pageSizeArr"
-      :page-size="pageObj.pageSize"
+      :page-size="pageSize"
       :layout="pageObj.layOutString"
       :total="pageObj.pageTotal">
     </el-pagination>
@@ -29,14 +30,26 @@ export default {
       this.$emit('changePage', val, 'gotoPage');
     }
   },
+  created () {
+    if ($type.isType(this.pageObj, 'Object')) {
+      if (!this.pageObj.currentPage) {
+        this.pageObj.currentPage = 1;
+      };
+    };
+  },
   data () {
     return {
       pageSize: PAGE.PAGE_SIZE,
-      pageSizeArr: PAGE.PAGE_SIZE_ARRARY,
-      currentPage: 1
+      pageSizeArr: PAGE.PAGE_SIZE_ARRARY
     };
   },
-  props: [ 'pageObj' ]
+  props: {
+    pageObj: {
+      validator: function (value) {
+        return typeof value === 'object' && typeof value.pageTotal === 'number' && typeof value.layOutString === 'string';
+      }
+    }
+  }
 };
 </script>
 

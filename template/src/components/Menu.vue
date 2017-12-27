@@ -4,9 +4,9 @@
     <div class="toggle-menu-view">
       \{{!isCollapse ? PROJECT_NAME : ''}}
       <span class="iconfont"
-        @click="toggleCollapse">&#xe6c0;</span>
+        @click="toggleMenu">&#xe6c0;</span>
     </div>
-    <el-menu default-active="1"
+    <el-menu default-active="defaultActive"
       @select="onSelect"
       @close="onClose"
       @open="onOpen"
@@ -69,28 +69,51 @@ export default {
       default () {
         return true;
       }
+    },
+    userInfo: {
+      type: Object,
+      default () {
+        return {};
+      }
     }
+  },
+  watch: {
+    $route () {
+      this.$nextTick(() => {
+        if (this.$route.meta && ROUTE_REG.exec(this.$route.meta.activeSrc)) {
+          this.defaultActive = ROUTE_REG.exec(this.$route.meta.activeSrc)['input'];
+        }
+      });
+    }
+  },
+  created () {
+    this.$nextTick(() => {
+      if (this.$route.meta && ROUTE_REG.exec(this.$route.meta.activeSrc)) {
+        this.defaultActive = ROUTE_REG.exec(this.$route.meta.activeSrc)['input'];
+      }
+    });
   },
   data () {
     return {
+      defaultActive: '1',
       isCollapse: false,
-      MENU_CONFIG,
+      MENU_CONFIG: MENU_CONFIG,
       PROJECT_NAME
     };
   },
   methods: {
-    toggleCollapse () {
+    onSelect (index, indexPath) {
+      this.$emit('select', arguments);
+    },
+    toggleMenu () {
       this.isCollapse = !this.isCollapse;
       this.$emit('collapse', this.isCollapse);
     },
-    onSelect () {
-      this.emit('select', arguments);
-    },
     onOpen () {
-      this.emit('open', arguments);
+      this.$emit('open', arguments);
     },
     onClose () {
-      this.emit('close', arguments);
+      this.$emit('close', arguments);
     }
   }
 };
