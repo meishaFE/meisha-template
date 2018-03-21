@@ -61,6 +61,8 @@
 
 <script>
 import { MENU_CONFIG, PROJECT_NAME } from '@/config';
+const ROUTE_REG = /^(\/[^/]*)[/]?/;
+
 export default {
   name: 'Menu',
   props: {
