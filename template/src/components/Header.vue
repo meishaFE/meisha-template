@@ -4,8 +4,10 @@
       <span>\{{title}}</span>
     </a>
     <ul class="right-link">
-      <li v-for="(item, index) in rightLinks"
-        :key="index">
+      <li v-if="userInfo">
+        <span class="user-info">\{{userInfo.realname}}</span>
+      </li>
+      <li v-for="(item, index) in rightLinks" :key="index">
         <router-link :to="item.router">\{{item.label}}</router-link>
       </li>
       <li>
@@ -28,11 +30,14 @@ export default {
       default () {
         return [{
           router: '',
-          label: '账户权限'
-        }, {
-          router: '',
           label: '个人设置'
         }];
+      }
+    },
+    userInfo: {
+      type: Object,
+      default () {
+        return null;
       }
     }
   }
@@ -52,7 +57,6 @@ export default {
     display: block;
     width: 180px;
     height: 50px;
-    background: $fontColorSubTitle;
     cursor: pointer;
     text-align: center;
     span {
@@ -62,7 +66,7 @@ export default {
       background: url('http://meishakeji-oss1.oss-cn-shenzhen.aliyuncs.com/camps/camppic/f988f49793f9455dab80afcc11a2049a.png') no-repeat left center;
     }
     &:hover {
-      background: $defaultColorNormal;
+      background: $fontColorSubTitle;
     }
   }
   .right-link {

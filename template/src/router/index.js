@@ -8,13 +8,25 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
       component: () => import('@/views/home'),
       children: [
         {
           path: '',
           name: 'Welcome',
           component: () => import('@/views/welcome')
+        },
+        {
+          path: '/demo',
+          component: () => import('@/views/demo/home'),
+          children: [{
+            path: '/demo/test',
+            name: 'Test',
+            meta: {
+              activeSrc: '/demo/test',
+              keepAlive: true
+            },
+            component: () => import('@/views/demo/test')
+          }]
         }
       ]
     },

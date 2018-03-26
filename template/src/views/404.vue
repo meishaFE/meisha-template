@@ -9,8 +9,7 @@
         这时候你可以：
       </div>
       <div class="para-3">
-        <router-link class="para-3__homebtn"
-          :to="{name: 'Home'}">返回到首页</router-link>
+        <router-link class="para-3__homebtn" :to="{name: 'Welcome'}">返回到首页</router-link>
       </div>
     </div>
   </section>
