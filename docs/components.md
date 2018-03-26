@@ -36,7 +36,7 @@ export default {
 ### Events
 | 事件名 | 说明           | 参数 |
 | ---- | -------------- |---|
-| logout | 退出 | - |
+| logout | 退出 | - |
 
 ## Menu 菜单
 在Element UI的menu组件的基础上进行二次封装，映射关系参照config中的menu.js
@@ -64,7 +64,7 @@ export default {
   }
 }
 ```
-MENU_CONFIG示例
+MENU_CONFIG示例
 ```js
 [
   {
@@ -201,7 +201,7 @@ export default {
 ```html
 <vDialog :dialogObj="dialogObj">
   <div slot="template">
-    这里是弹窗内容
+    这里是弹窗内容
   </div>
 </vDialog>
 ```
