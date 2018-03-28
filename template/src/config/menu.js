@@ -1,5 +1,10 @@
 export const MENU_CONFIG = [
   {
+    title: 'DEMO',
+    icon: 'message',
+    index: '/demo/test'
+  },
+  {
     title: '导航一',
     index: '1',
     icon: 'message',
@@ -31,11 +36,11 @@ export const MENU_CONFIG = [
   {
     title: '导航二',
     index: '2',
-    icon: 'menu'
+    icon: 'message'
   },
   {
     title: '导航三',
     index: '3',
-    icon: 'menu'
+    icon: 'setting'
   }
 ];

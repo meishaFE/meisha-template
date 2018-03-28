@@ -18,7 +18,7 @@
 // pageObj.layOutString：组件布局
 // pageObj.isSmall：是否使用小型分页 默认false
 // changePage：页码或者每页数量发生改变时调用的函数，perPage 标志每页数量发生的改变，gotoPage 标志为去到第几页
-import { PAGE } from '../../config/index';
+import { PAGE } from '@/config/index';
 export default {
   name: 'Pagination',
   methods: {
@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-  @import "../../assets/scss/index";
+  @import "./../assets/scss/index";
   .page-opera-view{
       text-align: right;
   }

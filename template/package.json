@@ -33,7 +33,7 @@
     "vue-router": "^3.0.1"{{/router}}{{#vuex}},
     "vuex": "^3.0.0"{{/vuex}}{{#polyfill}},
     "babel-polyfill": "^6.26.0"{{/polyfill}}{{#element}},
-    "element-ui": "^1.4.10"{{/element}}
+    "element-ui": "^2.2.2"{{/element}}
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
