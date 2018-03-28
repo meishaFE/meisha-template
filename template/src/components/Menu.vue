@@ -3,10 +3,11 @@
     :class="{'hidden-menu': isCollapse}">
     <div class="toggle-menu-view">
       \{{!isCollapse ? PROJECT_NAME : ''}}
-      <span class="iconfont"
-        @click="toggleMenu">&#xe6c0;</span>
+      <span class="iconfont icon-menu"
+        @click="toggleMenu"></span>
     </div>
-    <el-menu default-active="defaultActive"
+    <el-menu :default-active="defaultActive"
+      :default-openeds="defaultOpeneds"
       @select="onSelect"
       @close="onClose"
       @open="onOpen"
@@ -20,7 +21,8 @@
           <template v-if="item.title"
             slot="title">
             <i v-if="item.icon"
-              :class="`el-icon-${item.icon}`"></i>
+              class="iconfont"
+              :class="`icon-${item.icon}`"></i>
             <span slot="title">\{{item.title}}</span>
           </template>
           <template v-for="(child, childIdx) in item.children">
@@ -29,7 +31,8 @@
               <template v-if="child.title"
                 slot="title">
                 <i v-if="child.icon"
-                  :class="`el-icon-${child.icon}`"></i>
+                  class="iconfont"
+                  :class="`icon-${child.icon}`"></i>
                 <span slot="title">\{{child.title}}</span>
               </template>
               <el-menu-item v-for="(groupItem, groupItemIdx) in child.children"
@@ -50,7 +53,8 @@
           :index="item.index">
           <template v-if="item.title">
             <i v-if="item.icon"
-              :class="`el-icon-${item.icon}`"></i>
+              class="iconfont"
+              :class="`icon-${item.icon}`"></i>
             <span slot="title">\{{item.title}}</span>
           </template>
         </el-menu-item>
@@ -70,12 +74,6 @@ export default {
       type: Boolean,
       default () {
         return true;
-      }
-    },
-    userInfo: {
-      type: Object,
-      default () {
-        return {};
       }
     }
   },
@@ -98,6 +96,7 @@ export default {
   data () {
     return {
       defaultActive: '1',
+      defaultOpeneds: ['1'],
       isCollapse: false,
       MENU_CONFIG: MENU_CONFIG,
       PROJECT_NAME
@@ -105,7 +104,10 @@ export default {
   },
   methods: {
     onSelect (index, indexPath) {
-      this.$emit('select', arguments);
+      if (this.$route.path !== index) {
+        this.$emit('select', arguments);
+        this.$router.push({path: index});
+      }
     },
     toggleMenu () {
       this.isCollapse = !this.isCollapse;
@@ -130,6 +132,18 @@ export default {
     width: 180px;
     height: 100%;
     background: $bgColorDisabled;
+    border-right: 1px solid $borderColorTable;
+    overflow: hidden;
+    .el-menu {
+      top: 48px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow-y: auto;
+      border-right: none;
+      padding-bottom: 40px;
+    }
     .toggle-menu-view {
         position: relative;
         height: 48px;
@@ -149,6 +163,9 @@ export default {
             @include font-style(16px, $fontColorDisable, 48px);
         }
     }
+}
+.el-submenu .el-menu-item {
+  min-width: 180px;
 }
 .view-menu.hidden-menu {
     width: 64px;

@@ -1,15 +1,18 @@
 <template>
-  <div class="home">
-    <v-header @logout="logout"></v-header>
-    <v-menu v-on:collapse="toggleMenuCollapse"></v-menu>
-    <div class="main"
-      :class="{large: isMenuColllapse}">
-       <keep-alive>
-        <router-view v-on:changeLoading="changeLoading" v-if="$route.meta.keepAlive"/>
-      </keep-alive>
-      <router-view v-on:changeLoading="changeLoading" v-if="!$route.meta.keepAlive"></router-view>
+  <section class="view-all">
+    <v-header class="view-top" :userInfo="userInfo" @logout="logout"></v-header>
+    <v-menu @collapse="toggleMenuCollapse"></v-menu>
+    <div class="view-right" :class="{'is-change': isMenuColllapse}" v-loading="isLoading">
+      <template v-if="$route.meta.keepAlive">
+        <keep-alive>
+          <router-view v-on:changeLoading="changeLoading"/>
+        </keep-alive>
+      </template>
+      <template v-else>
+        <router-view v-on:changeLoading="changeLoading"></router-view>
+      </template>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -19,7 +22,9 @@ export default {
   name: 'Home',
   data () {
     return {
-      isMenuColllapse: false
+      userInfo: null,
+      isMenuColllapse: false,
+      isLoading: false
     };
   },
   methods: {
@@ -28,6 +33,9 @@ export default {
     },
     logout () {
       this.$store.dispatch('logout');
+    },
+    changeLoading (isLoading) {
+      this.isLoading = !!isLoading;
     }
   },
   components: {
@@ -39,7 +47,7 @@ export default {
 
 <style lang="scss" rel="stylesheet/scss" scoped>
   @import "../assets/scss/index";
-  .home {
+  .view-all {
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -48,15 +56,18 @@ export default {
     right: 0;
     min-width: 1103px;
 
-    .main {
+    .view-top{
+      position: relative;
+      z-index: 3000;
+    }
+    .view-right{
       position: absolute;
       top: 50px;
       left: 180px;
       right: 0;
       bottom: 0;
       @include transition(left .3s ease);
-
-      &.large {
+      &.is-change {
         left: 64px;
       }
     }

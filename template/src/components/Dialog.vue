@@ -1,6 +1,7 @@
 <template>
   <el-dialog :title="dialogObj.title"
     :close-on-click-modal="false"
+    :modal="dialogObj.modal"
     :before-close="handleClose"
     :visible.sync="dialogObj.dialogVisible"
     :class="{'dialog-a':dialogObj.type == 'A','dialog-b':dialogObj.type == 'B','dialog-c':dialogObj.type == 'C','dialog-self':true}">
@@ -10,7 +11,7 @@
     <span slot="footer"
       class="dialog-footer">
       <template v-if="!hasBtnDefineSlot">
-        <el-button v-if="!dialogObj.isNeedCancel"  @click="handleClose">
+        <el-button v-if="dialogObj.isNeedCancel"  @click="handleClose">
           <template v-if="dialogObj.cancelTxt">
             \{{dialogObj.cancelTxt}}
           </template>
@@ -76,11 +77,44 @@ export default {
         };
       }
     }
-  },
-  components: {}
+  }
 };
 </script>
-<style lang="scss"
-  rel="stylesheet/scss">
-  @import './dialog.scss'
+<style lang="scss" rel="stylesheet/scss">
+  @import '../assets/scss/index';
+
+  //弹窗样式改造
+  .dialog-self .el-dialog{
+    .el-dialog__header{
+      padding: 20px;
+      border-bottom: 1px solid $borderColorTable;
+    }
+    .el-dialog__body{
+      max-height: 469px;
+      overflow-y: auto;
+    }
+    .el-dialog__footer{
+      border-top: 1px solid $borderColorTable;
+      padding: 16px 20px;
+    }
+    .icon-style{
+      color: $warnColorNormal;
+      margin-right: 10px;
+    }
+  }
+
+  //A类弹窗
+  .dialog-a .el-dialog{
+    width: 380px;
+  }
+
+  //B类弹窗
+  .dialog-b .el-dialog{
+    width: 460px;
+  }
+
+  //C类弹窗
+  .dialog-c .el-dialog{
+    width: 948px;
+  }
 </style>

@@ -23,6 +23,9 @@ npm run dev
 1. clone 自己 github 项目到本地进行开发；pull, commit, push
 1. 进入到自己 github 上找到此项目，切换到 Pull request 模块，点击 New pull request 按钮；然后会出现 Comparing changes界面（分支可切换），填写录入修改提交信息之后，点击 Create pull request 按钮即可完成一次 pr 提交
 
+## 组件文档
+* [点击查看](docs/components.md)
+
 ## eslint自定义规则说明
 
 [点击查看](./ESLINT.md)

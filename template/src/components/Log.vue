@@ -1,34 +1,27 @@
 <template>
   <section class="view-log">
     <div class="log-name">操作日志</div>
-    <template v-if="logArr.length>0">
+    <template v-if="logArr && logArr.length">
       <ul>
-        <li class="display-flex" v-for="(item,k) in logArr" :key="k" :class="{'attention-status':item.level == 2, 'red-status':item.level === 3}">
+        <li v-for="(item, k) in logArr" :key="k" :class="{'attention-status': item.level === 2, 'red-status':item.level === 3}">
           <div class="time-div">
             \{{item.createTime}}
           </div>
           <div class="w-200">
             \{{item.operator | setDefaultText}}
           </div>
-          <div class="flex1">
-            <template v-if="logObj.rowId!=''">
-              \{{item.detail}}
-            </template>
-            <template v-else>
-              \{{item.description}}
-            </template>
-          </div>
+          <div class="flex1">\{{item.description}}</div>
         </li>
       </ul>
       <div class="load-more-log" v-if="hasMore">
         <span @click="loadMore">加载更多记录</span><i class="el-icon-arrow-down"></i>
       </div>
     </template>
-    
+
     <div class="no-data-default" v-else>
       暂无数据
     </div>
-    
+
   </section>
 </template>
 
@@ -56,51 +49,31 @@ export default {
     };
   },
   created () {
-    // this.getLogList();
+    this.getLogList();
   },
   methods: {
     getLogList () {
-      let params = {
-        data: {
-          currentPage: this.pageObj.currentPage,
-          perPage: this.pageObj.perPage,
-          type: this.logObj.objectType,
-          rowId: this.logObj.objectId || ''
-        }
-      };
-      $http.get(CONFIG.API.GET_LOG, {params})
-      .then(res => {
-        if (res) {
-          this.pageObj.count = res.data.count;
-          let list = res.data.list;
-          if (this.pageObj.currentPage === 1) {
-            this.logArr = list;
-          } else {
-            this.logArr = this.logArr.concat(list);
-          }
-          this.checkHasMore(res.data);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-        this.$message({
-          type: 'error',
-          duration: 1500,
-          message: (error && error.msg) || '网络故障'
+      setTimeout(() => {
+        this.logArr.push({
+          changedRecordId: 'de09a86400312a1a',
+          createTime: '2018-03-23 17:51:32',
+          description: '修改了数据ID为：1768815(de09a86400312a1a) 的数据',
+          detail: 'XXXXXXXXX',
+          operator: 'aaron',
+          operatorId: 'a0a88a563a845c52',
+          operatorTeamId: 'meisha',
+          level: 0
         });
-      });
+        this.checkHasMore();
+      }, 200);
     },
-    checkHasMore (obj) {
-      if (obj.lastPage === this.pageObj.currentPage) {
-        this.hasMore = false;
-      }
+    checkHasMore () {
+      this.pageObj.currentPage > 3 && (this.hasMore = false);
     },
     loadMore () {
       ++this.pageObj.currentPage;
       this.getLogList();
     }
-  },
-  components: {
   }
 };
 </script>
@@ -116,6 +89,7 @@ export default {
     ul{
       margin-top: 3px;
       li{
+        display: flex;
         margin-bottom: 10px;
       }
       div{
