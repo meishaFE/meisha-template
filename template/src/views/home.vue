@@ -3,10 +3,14 @@
     <v-header class="view-top" :userInfo="userInfo" @logout="logout"></v-header>
     <v-menu @collapse="toggleMenuCollapse"></v-menu>
     <div class="view-right" :class="{'is-change': isMenuColllapse}" v-loading="isLoading">
-       <keep-alive>
-        <router-view v-on:changeLoading="changeLoading" v-if="$route.meta.keepAlive"/>
-      </keep-alive>
-      <router-view v-on:changeLoading="changeLoading" v-if="!$route.meta.keepAlive"></router-view>
+      <template v-if="$route.meta.keepAlive">
+        <keep-alive>
+          <router-view v-on:changeLoading="changeLoading"/>
+        </keep-alive>
+      </template>
+      <template v-else>
+        <router-view v-on:changeLoading="changeLoading"></router-view>
+      </template>
     </div>
   </section>
 </template>
@@ -31,7 +35,7 @@ export default {
       this.$store.dispatch('logout');
     },
     changeLoading (isLoading) {
-      this.isLoading = isLoading;
+      this.isLoading = !!isLoading;
     }
   },
   components: {
@@ -63,9 +67,9 @@ export default {
       right: 0;
       bottom: 0;
       @include transition(left .3s ease);
-    }
-    .view-right.is-change{
-      left: 64px;
+      &.is-change {
+        left: 64px;
+      }
     }
   }
 </style>

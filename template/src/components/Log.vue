@@ -1,9 +1,9 @@
 <template>
   <section class="view-log">
     <div class="log-name">操作日志</div>
-    <template v-if="logArr.length>0">
+    <template v-if="logArr && logArr.length">
       <ul>
-        <li v-for="(item,k) in logArr" :key="k" :class="{'attention-status':item.level == 2, 'red-status':item.level === 3}">
+        <li v-for="(item, k) in logArr" :key="k" :class="{'attention-status': item.level === 2, 'red-status':item.level === 3}">
           <div class="time-div">
             \{{item.createTime}}
           </div>

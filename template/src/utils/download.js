@@ -4,7 +4,7 @@ import axios from 'axios';
 import URLSearchParams from 'url-search-params';
 import { BASE_URL } from '@/config/api';
 
-const isNotSupporDownload = /Version.*10.0.*safari/i.test(window.navigator.userAgent); // 是否不支持下载功能
+const ISNOTSUPPORTDOWNLOAD = /Version.*10.0.*safari/i.test(window.navigator.userAgent); // 是否不支持下载功能
 const SPEC_REG = /octet-stream|vnd.openxmlformats-officedocument.spreadsheetml.sheet/i; // 判断请求头的 content-type
 const isArray = val => Object.prototype.toString.call(val) === '[object Array]';
 const isObject = val => Object.prototype.toString.call(val) === '[object Object]';
@@ -78,13 +78,16 @@ function getFileNameFromContentDisposition (disposition) {
 /**
  * 下载 Excel 的方法
  * 把服务器返回的响应作为参数给过来就可以了。
- * @param {Response} response
- * @param {String} backupFileName 用于未能从 header 获取 filename 时的后备
+ * @param {Object} options
+ * @param {Object} options.response
+ * @param {String} options.backupFileName 用于未能从 header 获取 filename 时的后备
+ * @param {String} options.fileType
  */
-function downloadExcel (response, backupFileName = 'Default.xlsx', fileType = 'application/octet-stream') {
+function downloadExcel (options) {
+  const { response, backupFileName = 'Default.xlsx', fileType = 'application/octet-stream' } = options;
   return new Promise((resolve, reject) => {
     if (!response) return reject({ code: -10000, msg: 'response argument is required' });
-    if (isNotSupporDownload) return reject({ code: -10000, msg: '此浏览器版本不支持下载，请升级版本后重试' });
+    if (ISNOTSUPPORTDOWNLOAD) return reject({ code: -10000, msg: '此浏览器版本不支持下载，请升级版本后重试' });
 
     const { data, headers } = response;
     if (!data || !headers) return reject({ code: -10000, msg: 'response arguments is error' });
@@ -108,7 +111,11 @@ function download (api, data, config = {}) {
       responseType: 'arraybuffer'
     })
     .then(res => {
-      return downloadExcel(res, backupFileName, fileType);
+      return downloadExcel({
+        response: res,
+        backupFileName: backupFileName,
+        fileType: fileType
+      });
     });
 }
 
