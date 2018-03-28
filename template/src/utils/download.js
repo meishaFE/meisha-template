@@ -4,7 +4,7 @@ import axios from 'axios';
 import URLSearchParams from 'url-search-params';
 import { BASE_URL } from '@/config/api';
 
-const ISNOTSUPPORTDOWNLOAD = /Version.*10.0.*safari/i.test(window.navigator.userAgent); // 是否不支持下载功能
+const IS_NOT_SUPPORT_DOWNLOAD = /Version.*10.0.*safari/i.test(window.navigator.userAgent); // 是否不支持下载功能
 const SPEC_REG = /octet-stream|vnd.openxmlformats-officedocument.spreadsheetml.sheet/i; // 判断请求头的 content-type
 const isArray = val => Object.prototype.toString.call(val) === '[object Array]';
 const isObject = val => Object.prototype.toString.call(val) === '[object Object]';
@@ -87,7 +87,7 @@ function downloadExcel (options) {
   const { response, backupFileName = 'Default.xlsx', fileType = 'application/octet-stream' } = options;
   return new Promise((resolve, reject) => {
     if (!response) return reject({ code: -10000, msg: 'response argument is required' });
-    if (ISNOTSUPPORTDOWNLOAD) return reject({ code: -10000, msg: '此浏览器版本不支持下载，请升级版本后重试' });
+    if (IS_NOT_SUPPORT_DOWNLOAD) return reject({ code: -10000, msg: '此浏览器版本不支持下载，请升级版本后重试' });
 
     const { data, headers } = response;
     if (!data || !headers) return reject({ code: -10000, msg: 'response arguments is error' });

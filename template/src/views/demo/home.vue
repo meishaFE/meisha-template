@@ -2,7 +2,7 @@
    <section>
      <div class="common-bread-zone">
         <el-breadcrumb separator="/" class="bread-crumb-left" v-if="breadArr">
-          <el-breadcrumb-item v-for="(item,k) in breadArr" :key="k" :to="item.to">\{{item.name}}</el-breadcrumb-item>
+          <el-breadcrumb-item v-for="(item, k) in breadArr" :key="k" :to="item.to">\{{item.name}}</el-breadcrumb-item>
         </el-breadcrumb>
         <el-input
           v-if="hasSearch"
