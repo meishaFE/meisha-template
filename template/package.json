@@ -28,7 +28,7 @@
   {{/precommit}}
   "dependencies": {
     "axios": "^0.16.2",
-    "url-search-params": "^0.10.0",
+    "@ungap/url-search-params": "^0.1.2",
     "vue": "^2.5.2"{{#router}},
     "vue-router": "^3.0.1"{{/router}}{{#vuex}},
     "vuex": "^3.0.0"{{/vuex}}{{#polyfill}},

@@ -1,7 +1,7 @@
 /* eslint-disable prefer-promise-reject-errors */
 import FileSaver from 'file-saver';
 import axios from 'axios';
-import URLSearchParams from 'url-search-params';
+import URLSearchParams from '@ungap/url-search-params';
 import { BASE_URL } from '@/config/api';
 
 const IS_NOT_SUPPORT_DOWNLOAD = /Version.*10.0.*safari/i.test(window.navigator.userAgent); // 是否不支持下载功能

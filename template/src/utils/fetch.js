@@ -3,7 +3,7 @@
  * 已封装 Auth 到 Header 里面，默认会处理错误的响应，返回 Promise
  */
 import axios from 'axios';
-import URLSearchParams from 'url-search-params';
+import URLSearchParams from '@ungap/url-search-params';
 import { BASE_URL } from '@/config/api';
 import { isType } from './type';
 
